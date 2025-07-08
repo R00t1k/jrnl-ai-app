@@ -63,6 +63,7 @@ model User {
     sessions      Session[]
     posts         Post[]
     entries       Entry[] 
+    todos         Todo[]
 }
 
 model VerificationToken {
@@ -81,5 +82,16 @@ model Entry {
     user      User     @relation(fields: [userId], references: [id],onDelete: Cascade)
     dataCreatedAt DateTime @default(now())
     moodRating  Int?
+
+}
+
+model Todo {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    text      String
+    done      Boolean  @default(false)
+    userId    String
+    user      User     @relation(fields: [userId], references: [id])
 
 }
