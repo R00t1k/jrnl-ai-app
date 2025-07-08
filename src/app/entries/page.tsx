@@ -13,8 +13,6 @@ import moment from "moment";
 const Entries = () => {
   const { status: sessionStatus } = useSession();
   const { replace } = useRouter();
-  const { data } = api.post.hello.useQuery({ text: "hello t3 in cool" });
-
   const { data: entriesData } = api.jounralling.getAllEntries.useQuery(
     undefined,
     {
@@ -41,7 +39,6 @@ const Entries = () => {
         <h1 className="font-poppins text-center text-4xl font-bold text-neutral-50">
           Your Entries
         </h1>
-        <p className="text-neutral-50 text-center">{data?.greeting}</p>
         {entriesData?.length === 0 ? (
           <NoEntries />
         ) : (
