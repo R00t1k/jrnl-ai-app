@@ -13,10 +13,7 @@ import moment from "moment";
 const Entries = () => {
   const { status: sessionStatus } = useSession();
   const { replace } = useRouter();
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f62162beec9bfd41d13077dc883a428a5c39b3f
   const { data: entriesData } = api.jounralling.getAllEntries.useQuery(
     undefined,
     {
